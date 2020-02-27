@@ -5,13 +5,24 @@ AudioSample woohoo;
 
 void setup() {
   PImage waldo = loadImage("waldo.jpg"); // Change this to match your file name.
-  size(500, 500);
-  image(waldo, 0, 0);
+  size(800, 500);
+  waldo.resize(width,height);
+  background(waldo);
   doh = minim.loadSample("homer-doh.wav"); //drag and drop from project onto sketch
   woohoo = minim.loadSample("homer-woohoo.wav"); //drag and drop from project onto sketch } 
 }
 
 void draw() {
+
+  
+  if (mouseX < 420 && mouseX > 410 && mouseY < 240 && mouseY > 230 && mousePressed){
+    println("you found Waldo!");
+    playWoohoo();
+   
+  }else if (mousePressed){
+    playDoh();
+  }
+  
       // Use this print statement to find out the coordinates of Waldo
       // println("X: " + mouseX + " Y: " + mouseY); 
 
